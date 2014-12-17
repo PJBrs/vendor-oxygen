@@ -1,0 +1,46 @@
+
+My reasons for building oxygen-rom were twofold. First, this lightweight Gingerbread rom still supports the HTC Desire completely, no problems with FM-radio, Camera, Wifi hotspot or anything like that. Second, by now many security flaws in Gingerbread have been found and not addressed. I wanted to close as many of these security holes as possible. I reckon that any app on Google Play might use something like Gingerbreak or ZergRush for some nefarious purpose, so these holes should be closed. Then there was the Master Key vulnerability which was pretty bad. And all those "external" apps in the Android repo, which have not been updated but are still part of Android, such as openssel and dbus. I must say that I find it hard to gauge the impact in the latter category.
+
+By no means have I checked all external packages for security flaws. However, this rom at least doesn't some of the most glaring issues in other Gingerbread roms.
+
+Thanks to the writers of all those patches that I used.
+Thanks to adamg schiznik and renan- for the original oxygen-rom
+Thanks to thalamus for his kernel
+Thanks to croniccorey for int2ext+ and like scripts
+
+TODO: Commit Cronmod's int2ext+ additions.
+
+Version: OxygenROM-2.3.1pj
+
+Changes:
+   * Compile fixes to dalvik, frameworks-base, webkit, v8 and srec
+   * Add FM-radio back in, even though it is a hack
+   * vendor-oxygen: Limit build to bravo
+   * vendor-oxygen: Add dalvik-cache to sd in a2sd script
+   * vendor-oxygen: Change version
+   * clearsilver: Patch for CVE-2011-4357, from Debian
+   * kernel: Upgraded kernel to Thalamus-2.6.35.14-r4
+   * dbus: Remove check_monotonic_clock to fix compile...
+   * dbus: Committed to patches related to CVE-2012-3524 (Colin Walters)
+   * dbus: Patch CVE-2011-2200 by Simon McVittie
+   * dbus: Patch CVE-2011-2533 (very minor issue)
+   * dbus: Commit old patch for CVE 2010-4352: Reject deeply nested variants by Havoc Pennington
+   * bouncycastle: Committed one patch related to CVE-2013-1624
+   * icu4c: Fix CVE-2013-2924 with a patch from Debian
+   * icu4c: Fix CVE-2013-0900 with a patch from Debian
+   * icu4c: Fix CVE-2011-4599 with patch from Debian
+   * openssl: Also add static library to patched/crypto_Android.mk
+   * openssl: Rework linking of static library to mimic Koush's original addition
+   * openssl: Update openssl to 1.0.0l (many security issues)
+   * sqlite: Make static libsqlite smaller by not linking to several other libs
+   * sqlite: Add static libsqlite in order to build su version 3.1.1 statically.
+   * su: pin to version 3.1.1
+   * android-libcore: Patch for bug 9950697 (Master Key vulnerability) backported to CM 7.2 Taken from https://gist.github.com/Tungstwenty/7383439 
+   * system-core: Fix zergrush vulnerability
+   * system-core: CVE-2011-3918 Restrict zygote to system user
+   * packages-apps-Launcher2: Update welcome message
+   * packages-apps-Camera: Fix camera freezing, copied from thekraven
+
+Source can be found in https://github.com/PJBrs
+
+To build, clone my manifest (https://github.com/PJBrs/android_manifest/), sync with repo, choose bravo from the lunch menu and do 'make oxygen'.

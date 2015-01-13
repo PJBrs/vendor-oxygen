@@ -3,16 +3,18 @@ My reasons for building oxygen-rom were twofold. First, this lightweight Gingerb
 
 By no means have I checked all external packages for security flaws. However, this rom at least doesn't some of the most glaring issues in other Gingerbread roms.
 
+Note that I have swapped the traditional a2sd script for int2ext+, which means that you have to to a factory reset if you're upgrading from previous versions of oxygen-rom.
+
 Thanks to the writers of all those patches that I used.
 Thanks to adamg schiznik and renan- for the original oxygen-rom
 Thanks to thalamus for his kernel
 Thanks to croniccorey for int2ext+ and like scripts
 
-TODO: Commit Cronmod's int2ext+ additions.
-
-Version: OxygenROM-2.3.1pj
+Version: OxygenROM-2.3.0-1pj
 
 Changes:
+   * Add int2ext+
+   * Remove the original a2sd script
    * Compile fixes to dalvik, frameworks-base, webkit, v8 and srec
    * Add FM-radio back in, even though it is a hack
    * vendor-oxygen: Limit build to bravo
